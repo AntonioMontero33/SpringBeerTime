@@ -1,5 +1,7 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,9 +15,11 @@ public class DetalleReserva {
     private Integer cantidadDetalleReserva;
     @ManyToOne
     @JoinColumn(name = "tieneproductolocal", referencedColumnName = "codproductolocal")
+    @JsonBackReference
     private ProductoLocal tieneProductoLocal;
     @ManyToOne
     @JoinColumn(name = "tienereserva", referencedColumnName = "codreserva")
+    @JsonBackReference
     private Reserva tieneReserva;
 
 

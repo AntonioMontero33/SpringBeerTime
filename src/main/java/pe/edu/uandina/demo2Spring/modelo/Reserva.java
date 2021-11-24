@@ -1,5 +1,7 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javassist.expr.NewArray;
 
 import javax.persistence.*;
@@ -20,11 +22,14 @@ public class Reserva {
     private boolean estadoReserva;
     @ManyToOne
     @JoinColumn(name = "tieneusuario", referencedColumnName = "codusuario")
+    @JsonBackReference
     private Usuario tieneUsuario;
     @ManyToOne
     @JoinColumn(name = "tienelocal", referencedColumnName = "codlocal")
+    @JsonBackReference
     private Local tieneLocal;
     @OneToMany(mappedBy = "tieneReserva")
+    @JsonManagedReference
     private List<DetalleReserva> detalleReservas;
 
     public Reserva() {

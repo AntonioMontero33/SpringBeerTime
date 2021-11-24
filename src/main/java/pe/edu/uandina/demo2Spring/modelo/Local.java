@@ -1,5 +1,7 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +20,10 @@ public class Local {
     @Column(name="contrasena")
     private String contrasena;
     @OneToMany(mappedBy = "tieneLocal")
+    @JsonManagedReference
     private List<Reserva> reservas;
     @OneToMany(mappedBy = "tieneLocal")
+    @JsonManagedReference
     private List<ProductoLocal> productoLocales;
 
     public Local() {

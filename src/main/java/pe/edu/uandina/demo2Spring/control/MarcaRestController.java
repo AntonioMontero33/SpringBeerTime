@@ -8,6 +8,8 @@ import pe.edu.uandina.demo2Spring.modelo.services.IMarcaService;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/api")
 public class MarcaRestController {
     @Autowired
     private IMarcaService marcaService;

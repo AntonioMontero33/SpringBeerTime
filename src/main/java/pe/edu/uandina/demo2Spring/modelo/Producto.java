@@ -1,5 +1,8 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,26 +17,29 @@ public class Producto {
     @Column(name = "nombreproducto")
     private String nombreProducto;
     @Column(name = "mililitrosproducto")
-    private long mililitrosProducto;
+    private Integer mililitrosProducto;
     @Column(name = "descripcionproducto")
     private String descripcionProducto;
     @Column(name = "volalcoholproducto")
-    private long volalcoholProducto;
+    private Integer volalcoholProducto;
     @Column(name = "imagenproducto")
     private String imagenProducto;
     @ManyToOne
     @JoinColumn(name = "tienemarca", referencedColumnName = "codmarca")
+    @JsonBackReference
     private Marca tieneMarca;
     @ManyToOne
     @JoinColumn(name = "tienecategoria", referencedColumnName = "codcategoria")
+    @JsonBackReference
     private Categoria tieneCategoria;
     @OneToMany(mappedBy = "tieneProducto")
+    @JsonManagedReference
     private List<ProductoLocal> productoLocales;
 
     public Producto() {
     }
 
-    public Producto(Long codProducto, String nombreProducto, long mililitrosProducto, String descripcionProducto, long volalcoholProducto, String imagenProducto, Marca tieneMarca, Categoria tieneCategoria, List<ProductoLocal> productoLocales) {
+    public Producto(Long codProducto, String nombreProducto, Integer mililitrosProducto, String descripcionProducto, Integer volalcoholProducto, String imagenProducto, Marca tieneMarca, Categoria tieneCategoria, List<ProductoLocal> productoLocales) {
         this.codProducto = codProducto;
         this.nombreProducto = nombreProducto;
         this.mililitrosProducto = mililitrosProducto;
@@ -65,7 +71,7 @@ public class Producto {
         return mililitrosProducto;
     }
 
-    public void setMililitrosProducto(long mililitrosProducto) {
+    public void setMililitrosProducto(Integer mililitrosProducto) {
         this.mililitrosProducto = mililitrosProducto;
     }
 
@@ -81,7 +87,7 @@ public class Producto {
         return volalcoholProducto;
     }
 
-    public void setVolalcoholProducto(long volalcoholProducto) {
+    public void setVolalcoholProducto(Integer volalcoholProducto) {
         this.volalcoholProducto = volalcoholProducto;
     }
 

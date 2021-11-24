@@ -1,5 +1,7 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +19,11 @@ public class ProductoLocal {
     private List<DetalleReserva> detalleReservas;
     @ManyToOne
     @JoinColumn(name = "tieneproducto", referencedColumnName = "codproducto")
+    @JsonBackReference
     private Producto tieneProducto;
     @ManyToOne
     @JoinColumn(name = "tienelocal", referencedColumnName = "codlocal")
+    @JsonBackReference
     private Local tieneLocal;
 
 
