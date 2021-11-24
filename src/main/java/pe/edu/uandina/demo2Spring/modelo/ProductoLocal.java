@@ -14,7 +14,7 @@ public class ProductoLocal {
     @Column(name = "codproductolocal")
     private Long codProductoLocal;
     @Column(name = "precioproductolocal")
-    private long precioProductoLocal;
+    private Long precioProductoLocal;
     @OneToMany(mappedBy = "tieneProductoLocal")
     private List<DetalleReserva> detalleReservas;
     @ManyToOne
@@ -30,7 +30,7 @@ public class ProductoLocal {
     public ProductoLocal() {
     }
 
-    public ProductoLocal(Long codProductoLocal, long precioProductoLocal, List<DetalleReserva> detalleReservas, Producto tieneProducto, Local tieneLocal) {
+    public ProductoLocal(Long codProductoLocal, Long precioProductoLocal, List<DetalleReserva> detalleReservas, Producto tieneProducto, Local tieneLocal) {
         this.codProductoLocal = codProductoLocal;
         this.precioProductoLocal = precioProductoLocal;
         this.detalleReservas = detalleReservas;
@@ -50,7 +50,7 @@ public class ProductoLocal {
         return precioProductoLocal;
     }
 
-    public void setPrecioProductoLocal(long precioProductoLocal) {
+    public void setPrecioProductoLocal(Long precioProductoLocal) {
         this.precioProductoLocal = precioProductoLocal;
     }
 

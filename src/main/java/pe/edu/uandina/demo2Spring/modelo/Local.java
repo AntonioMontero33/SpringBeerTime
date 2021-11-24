@@ -16,7 +16,9 @@ public class Local {
     @Column(name="nombrelocal")
     private String nombreLocal ;
     @Column(name="ubicacionlocal")
-    private String ubicacionLocal ;
+    private String ubicacionLocal;
+    @Column(name="ruclocal")
+    private String ruclocal;
     @Column(name="contrasena")
     private String contrasena;
     @OneToMany(mappedBy = "tieneLocal")
@@ -29,10 +31,11 @@ public class Local {
     public Local() {
     }
 
-    public Local(long codLocal, String nombreLocal, String ubicacionLocal, String contrasena, List<Reserva> reservas, List<ProductoLocal> productoLocales) {
+    public Local(long codLocal, String nombreLocal, String ubicacionLocal, String ruclocal, String contrasena, List<Reserva> reservas, List<ProductoLocal> productoLocales) {
         this.codLocal = codLocal;
         this.nombreLocal = nombreLocal;
         this.ubicacionLocal = ubicacionLocal;
+        this.ruclocal = ruclocal;
         this.contrasena = contrasena;
         this.reservas = reservas;
         this.productoLocales = productoLocales;
@@ -91,6 +94,12 @@ public class Local {
         this.productoLocales = productoLocales;
     }
 
+    public String getRuclocal() {
+        return ruclocal;
+    }
 
+    public void setRuclocal(String ruclocal) {
+        this.ruclocal = ruclocal;
+    }
 }
 
