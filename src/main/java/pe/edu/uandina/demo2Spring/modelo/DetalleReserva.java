@@ -15,11 +15,11 @@ public class DetalleReserva {
     private Integer cantidadDetalleReserva;
     @ManyToOne
     @JoinColumn(name = "tieneproductolocal", referencedColumnName = "codproductolocal")
-    @JsonBackReference
+    @JsonBackReference (value = "jsonProductoLocal")
     private ProductoLocal tieneProductoLocal;
     @ManyToOne
     @JoinColumn(name = "tienereserva", referencedColumnName = "codreserva")
-    @JsonBackReference
+    @JsonBackReference (value = "jsonReserva")
     private Reserva tieneReserva;
 
 

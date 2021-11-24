@@ -26,14 +26,14 @@ public class Producto {
     private String imagenProducto;
     @ManyToOne
     @JoinColumn(name = "tienemarca", referencedColumnName = "codmarca")
-    @JsonBackReference
+    @JsonBackReference (value = "jsonMarca")
     private Marca tieneMarca;
     @ManyToOne
     @JoinColumn(name = "tienecategoria", referencedColumnName = "codcategoria")
-    @JsonBackReference
+    @JsonBackReference (value = "jsonCategoria")
     private Categoria tieneCategoria;
     @OneToMany(mappedBy = "tieneProducto")
-    @JsonManagedReference
+    @JsonManagedReference (value = "jsonProducto")
     private List<ProductoLocal> productoLocales;
 
     public Producto() {

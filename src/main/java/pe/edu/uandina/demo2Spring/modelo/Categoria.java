@@ -15,8 +15,9 @@ public class Categoria {
     private Long codCategoria;
     @Column(name="nombrecategoria")
     private String nombreCategoria;
+
     @OneToMany(mappedBy = "tieneCategoria")
-    @JsonManagedReference
+    @JsonManagedReference(value = "jsonCategoria")
     private List<Producto> productos;
 
     public Categoria(){

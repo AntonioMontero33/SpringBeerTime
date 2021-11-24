@@ -29,8 +29,10 @@ public class Usuario {
     private String Correo;
     @Column(name = "direccion")
     private String Direccion;
+
+
     @OneToMany(mappedBy = "tieneUsuario")
-    @JsonManagedReference
+    @JsonManagedReference (value = "jsonUsuario")
     private List<Reserva> reservas;
 
     public Usuario() {

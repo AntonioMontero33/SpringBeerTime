@@ -2,7 +2,6 @@ package pe.edu.uandina.demo2Spring.modelo;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import javassist.expr.NewArray;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -22,14 +21,14 @@ public class Reserva {
     private boolean estadoReserva;
     @ManyToOne
     @JoinColumn(name = "tieneusuario", referencedColumnName = "codusuario")
-    @JsonBackReference
+    @JsonBackReference (value = "jsonUsuario")
     private Usuario tieneUsuario;
     @ManyToOne
-    @JoinColumn(name = "tienelocal", referencedColumnName = "codlocal")
-    @JsonBackReference
-    private Local tieneLocal;
+    @JoinColumn(name = "tienelocal1", referencedColumnName = "codlocal")
+    @JsonBackReference (value = "jsonLocal1")
+    private Local tieneLocal1;
     @OneToMany(mappedBy = "tieneReserva")
-    @JsonManagedReference
+    @JsonManagedReference (value = "jsonReserva")
     private List<DetalleReserva> detalleReservas;
 
     public Reserva() {
@@ -40,7 +39,7 @@ public class Reserva {
         this.fechaReserva = fechaReserva;
         this.estadoReserva = estadoReserva;
         this.tieneUsuario = tieneUsuario;
-        this.tieneLocal = tieneLocal;
+        this.tieneLocal1 = tieneLocal;
         this.detalleReservas = detalleReservas;
     }
 
@@ -76,12 +75,12 @@ public class Reserva {
         this.tieneUsuario = tieneUsuario;
     }
 
-    public Local getTieneLocal() {
-        return tieneLocal;
+    public Local getTieneLocal1() {
+        return tieneLocal1;
     }
 
-    public void setTieneLocal(Local tieneLocal) {
-        this.tieneLocal = tieneLocal;
+    public void setTieneLocal1(Local tieneLocal1) {
+        this.tieneLocal1 = tieneLocal1;
     }
 
     public List<DetalleReserva> getDetalleReservas() {

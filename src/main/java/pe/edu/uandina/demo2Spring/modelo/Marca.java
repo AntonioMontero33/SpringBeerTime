@@ -16,7 +16,7 @@ public class Marca {
     @Column(name="nombremarca")
     private String nombreMarca;
     @OneToMany(mappedBy = "tieneMarca")
-    @JsonManagedReference
+    @JsonManagedReference (value = "jsonMarca")
     private List<Producto> productos;
 
     public Marca() {

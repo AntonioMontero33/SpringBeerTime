@@ -21,11 +21,11 @@ public class Local {
     private String ruclocal;
     @Column(name="contrasena")
     private String contrasena;
-    @OneToMany(mappedBy = "tieneLocal")
-    @JsonManagedReference
+    @OneToMany(mappedBy = "tieneLocal1")
+    @JsonManagedReference (value = "jsonLocal1")
     private List<Reserva> reservas;
     @OneToMany(mappedBy = "tieneLocal")
-    @JsonManagedReference
+    @JsonManagedReference (value = "jsonLocal" )
     private List<ProductoLocal> productoLocales;
 
     public Local() {
