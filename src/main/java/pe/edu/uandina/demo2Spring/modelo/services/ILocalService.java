@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface ILocalService {
     public List<Local> findAll();
+    public Local findById(Long id);
+    public Local save(Local local);
+    public void delete(Long id);
 }
